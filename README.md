@@ -1,2 +1,2 @@
-# witryny2023
+# witryny
 files for school
