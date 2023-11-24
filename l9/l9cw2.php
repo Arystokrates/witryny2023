@@ -10,14 +10,22 @@
     // variable declaration
     
     ?>
-    <form method="POST">
+    <form>
         <label for="a">Wpisz 1. liczbę: </label><br><br>
-        <input type="text" id="a" name="a">
+        <input type="number" id="a" name="a" min="-100" max="100">
+        <br>
+        <div class="error-box">
+
+        </div>
+        <br>
+        <label for="b">Wpisz 2. liczbę: </label>
         <br><br>
-        <label for="b">Wpisz 2. liczbę: </label><br><br>
-        <input type="text" id="b" name="b">
-        <br><br>
-        <label>Wybierz dzialanie:</label><br><br>        
+        <input type="number" id="b" name="b" min="-100" max="100">
+        <br>
+        <div class="error-box"></div>
+        <br>
+        <label>Wybierz dzialanie:</label>
+        <br><br>        
         <input type="radio" id="sum" name="sum">
         <label for="sum">+</label><br>
         <input type="radio" id="diff" name="difference">
