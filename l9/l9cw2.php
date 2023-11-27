@@ -14,7 +14,7 @@
 </head>
 <body>
     <?php
-    function select_if_selected($my_name, $goal){
+    function check_if_checked($my_name, $goal){
         if ($my_name == $goal) echo "checked";
     }
 
@@ -24,9 +24,9 @@
     }
 
     // variable declaration
-    $a = trim($_GET["a"])?? null;
-    $b = trim($_GET["b"])?? null;
-    $o = $_GET["operation"]?? null;
+    $a = trim($_GET["a"]) ?? null;
+    $b = trim($_GET["b"]) ?? null;
+    $o = $_GET["operation"] ?? null;
 
     $r = null;
     if ($a !== null && $b !== null){
@@ -57,13 +57,13 @@
         </div>
         <label>Wybierz dzialanie:</label>
         <br><br>        
-        <input type="radio" id="sum" name="operation" value="+" <?php select_if_selected("+", $o) ?>>
+        <input type="radio" id="sum" name="operation" value="+" <?php check_if_checked("+", $o) ?>>
         <label for="sum">+</label><br>
-        <input type="radio" id="diff" name="operation" value="-" <?php select_if_selected("-", $o) ?>>
+        <input type="radio" id="diff" name="operation" value="-" <?php check_if_checked("-", $o) ?>>
         <label for="diff">-</label><br>
-        <input type="radio" id="product" name="operation" value="*" <?php select_if_selected("*", $o) ?>>
+        <input type="radio" id="product" name="operation" value="*" <?php check_if_checked("*", $o) ?>>
         <label for="product">*</label><br>
-        <input type="radio" id="quotient" name="operation" value="/" <?php select_if_selected("/", $o) ?>>
+        <input type="radio" id="quotient" name="operation" value="/" <?php check_if_checked("/", $o) ?>>
         <label for="quotient">/</label>
         <br><br>
         <input type="submit" value="Wykonaj" name="post">
