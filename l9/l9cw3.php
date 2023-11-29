@@ -33,7 +33,7 @@
     <h3>ax<sup>2</sup> + bx + c = 0</h3>
     <form action="">
     <label for="a">
-    <input name="a" id="a" type="text" value="<?php echo $a ?>">
+    <input name="a" id="a" type="text" value="{{old('a')}}">
     <br>
     <div class="error-box">
     <?php 
@@ -42,7 +42,7 @@
     </div>
     <br>
     <label for="b">
-    <input name="b" id="b" type="text" value="<?php echo $b ?>">
+    <input name="b" id="b" type="text" value="{{old('b')}}">
     <br>
     <div class="error-box">
     <?php 
