@@ -1,0 +1,28 @@
+-- kw1
+SELECT imie, nazwisko, punkty
+FROM KLIENCI
+ORDER BY 3
+DESC
+LIMIT 3;
+
+
+-- kw2
+SELECT nazwa, COUNT(*) 'Ilosc klientow'
+FROM Typy 
+INNER JOIN klienci
+ON klienci.Typy_id = typy.id
+GROUP BY 1;
+
+
+-- kw3
+SELECT zdjecie, imie, opinia
+FROM klienci
+INNER JOIN opinie
+ON opinie.Klienci_id = klienci.id
+INNER JOIN typy ON typy.id = klienci.Typy_id
+WHERE typy.id = 2 OR typy.id = 3;
+
+
+-- kw 4
+ALTER TABLE klienci
+ADD adres varchar(50)
