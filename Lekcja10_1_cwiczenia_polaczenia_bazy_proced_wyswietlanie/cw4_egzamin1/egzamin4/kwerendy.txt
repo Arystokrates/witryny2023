@@ -1,0 +1,20 @@
+-- kwerenda nr 1
+SELECT id, cel, cena
+FROM wycieczki
+WHERE dostepna = 0;
+
+-- nr 2
+SELECT nazwaPliku, podpis
+FROM zdjecia
+ORDER BY 2
+DESC;
+
+-- nr 3
+SELECT podpis, cena, cel
+FROM zdjecia
+NATURAL JOIN wycieczki
+WHERE cena < 1200;
+
+-- nr 4
+ALTER TABLE wycieczki
+DROP COLUMN dataWyjazdu;
