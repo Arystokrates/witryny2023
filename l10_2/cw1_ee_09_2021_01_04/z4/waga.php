@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Twój wskaźnik BMI</title>
     <link rel="stylesheet" href="styl4.css"></link>
-    <?php 
-        $conn = mysqli_connect('localhost', 'root', '', 'egzamin2137')
-    ?>
 </head>
 <body>
     <div class="flex">
@@ -24,26 +21,39 @@
         </div>
         <div class="right">
             <h1>Podaj dane</h1>
-            <form action="" method="POST">
+            <form method="POST">
                 <label for="weight">Waga: </label>
                 <input id="weight" name="weight" type="number"><br>
-                <label for="Height">Wzrost[cm]: </label>
-                <input id="Height" name="Height" type="number">
+                <label for="height">Wzrost[cm]: </label>
+                <input id="height" name="height" type="number">
                 <input type="submit" value="Licz BMI i zapisz wynik">
                 <?php 
+                    $conn = new mysqli('localhost', 'root', '', 'egzamin2137');
+
                     $weight = $_POST['weight'] ?? "";
                     $height = $_POST['height'] ?? "";
                     if (strlen($weight)  > 0 && strlen($height) > 0){
                         $weight = intval($weight);
                         $height = intval($height);
-                        $bmi = $weight/$height**2;
-                        // tu jestes
+                        $bmi = ($weight/($height**2))*10000;
+                        echo "<p>Twoja waga: $weight; Twój wzrost: $height<br>BMI wynosi $bmi</p>";
+                        
+                        $status = 0;
+                        if ($bmi < 19) $status = 1;
+                        elseif ($bmi < 26) $status = 2;
+                        elseif ($bmi < 31) $status = 3;
+                        else $status = 4;
+                        
+                        $curdate = date('Y-m-d');
+
+                        $sql = "INSERT INTO `wynik` (`bmi_id`, `data_pomiaru`, `wynik`) VALUES
+                        ($status, \"$curdate\", $bmi)";
+                        $conn->query($sql);
                     }
                 ?>
             </form>
         </div>
     </div>
-    
     <main>
         <table>
             <tr>
@@ -51,17 +61,21 @@
                 <th>Interpretacja</th>
                 <th>zaczyna się od...</th>
                 <?php 
-                
+                    $sql = "SELECT id, informacja, wart_min 
+                    from bmi;";
+                    $result = $conn->query($sql);
+                    while ($row = $result->fetch_assoc()){
+                        echo "<tr><td>".$row['id']."</td><td>".$row['informacja']."</td><td>".$row['wart_min']."</td></tr>";
+                    }
+
+                    $conn->close();
                 ?>
             </tr>
         </table>
     </main>
     <footer>
         Autor: Ja
-        <a href="kw2.jp">Wynik działania kwerendy 2</a>
+        <a href="kw2.jpg">Wynik działania kwerendy 2</a>
     </footer>
-    <?php 
-        $mysqli_close()
-    ?>
 </body>
 </html>

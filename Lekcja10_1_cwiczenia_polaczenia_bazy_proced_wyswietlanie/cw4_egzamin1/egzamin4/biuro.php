@@ -58,7 +58,7 @@
         </article>
         <aside class="right">
             <h3>SKONTAKTUJ SIĘ</h3>
-            <a href="wycieczki@wycieczki.pl">napisz do nas</a>
+            <a href="mailto:wycieczki@wycieczki.pl">napisz do nas</a>
             <p>telefon: 555666777</p>
         </aside>
     </main>

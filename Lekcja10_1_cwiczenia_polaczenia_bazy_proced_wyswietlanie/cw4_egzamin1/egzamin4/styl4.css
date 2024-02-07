@@ -35,5 +35,5 @@ img{
     padding: 7px;
 }
 img:hover{
-    background-color: (255, 218, 185);
+    background-color: rgb(255, 218, 185);
 }

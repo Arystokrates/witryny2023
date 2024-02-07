@@ -7,7 +7,7 @@
     <?php include("connect_db.php") ?>
 </head>
 <body>
-    <?php 
+    <?php
     $result = mysqli_query($mysqliCon, "SELECT p1.ID_PRAC, p1.NAZWISKO, 
     p1.ID_SZEFA, p2.NAZWISKO 'nazwisko szefa'
     FROM pracownicy p1

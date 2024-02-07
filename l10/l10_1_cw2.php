@@ -23,7 +23,8 @@
     ETAT, zespoly.NAZWA, zespoly.ADRES
     FROM pracownicy 
     INNER JOIN zespoly
-    ON pracownicy.ID_ZESP = zespoly.ID_ZESP;";
+    ON pracownicy.ID_ZESP = zespoly.ID_ZESP
+    WHERE zespoly.adres LIKE 'PIOTROWO%';";
 
     $result = mysqli_query($mysqliCon, $query);
     ?>
