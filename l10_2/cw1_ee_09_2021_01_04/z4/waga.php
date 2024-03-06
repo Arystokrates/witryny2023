@@ -26,6 +26,7 @@
                 <input id="weight" name="weight" type="number"><br>
                 <label for="height">Wzrost[cm]: </label>
                 <input id="height" name="height" type="number">
+                <br>
                 <input type="submit" value="Licz BMI i zapisz wynik">
                 <?php 
                     $conn = new mysqli('localhost', 'root', '', 'egzamin2137');

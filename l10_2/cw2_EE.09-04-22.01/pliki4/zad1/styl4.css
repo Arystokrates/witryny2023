@@ -1,5 +1,6 @@
 *{
     font-family: Garamond;
+    box-sizing: border-box;
 }
 header{
     background-color: saddlebrown;
@@ -12,10 +13,14 @@ header{
     height: 500px;
     width: 40%;
 }
-.right>div{
+.right{
     background-color: Tan;
-    height: 250px;
+    height: 500px;
     width: 60%;
+}
+.right>div{
+    height: 50%;
+    width: 100%;
 }
 footer{
     background-color: saddlebrown;
@@ -31,7 +36,7 @@ form>input{
     margin: 5px;
 }
 p::before{
-    
+    content: "STATUS: ";
 }
 .flex {
     display: flex;

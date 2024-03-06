@@ -20,22 +20,54 @@
                 <form method="POST">
                     <label for="login">login: </label>
                     <input type="text" id="login" name="login">
-                    <label for="password" id="password" name="password">hasło: </label>
-                    <input type="password">
-                    <label for="password-rep" id="password-rep" name="password-rep">powtórz hasło: </label>
-                    <input type="password">
-                    <input type="submit" value="Zapisz">
-                    <?php ?>
+                    <br>
+                    <label for="password">hasło: </label>
+                    <input type="password" id="password" name="password">
+                    <br>
+                    <label for="password-rep">powtórz hasło: </label>
+                    <input type="password" id="password-rep" name="password-rep">
+                    <br>
+                    <input type="submit" name="submit" value="Zapisz">
                 </form>
+                <?php
+                    $conn = mysqli_connect("localhost", "root", "", "psy");
+                    
+                    $login = $_POST["login"] ?? "";
+                    $password = $_POST["password"] ?? "";
+                    $password_rep = $_POST["password-rep"] ?? "";
+
+                    function iSLoginOccupied(string $login, $result){
+                        while ($row = $result->fetch_assoc()) {
+                            if (trim($login) == $row["login"]) return true;
+                        }
+                        return false;
+                    }
+
+                    $result = mysqli_query($conn, "SELECT login FROM uzytkownicy;");
+
+                    $iSLoginOccupied = false;
+                    if (isset($_POST["submit"])){
+                        if (strlen($login) == 0 || strlen($password) == 0 || strlen($password_rep) == 0) echo "<p>Wypełnij wszystkie pola</p>";
+                        elseif (iSLoginOccupied($login, $result)) echo "<p>Login występuje w bazie danych, konto nie zostało dodane</p>";
+                        elseif (trim($password) != trim($password_rep)) echo "<p>Hasła się różnią. Konto nie zostało dodane.</p>";
+                        else {
+                            if (mysqli_query($conn, "INSERT INTO uzytkownicy(`login`, haslo) VALUES
+                            ('".$login."', '".sha1($password)."')")) echo "Konto zostało dodane";
+                            else echo "Konto nie dodane z nieznanych przyczyn :c. Zgłoś problem do administracji";
+                        }
+                    }
+                    mysqli_close($conn);
+                    ?>
             </div>
             <div>
                 <h2>Zapraszamy wszystkich</h2>
                 <ol>
                     <li>właścicieli psów</li>
                     <li>weterynarzy</li>
+                    <li>tych, co chcą kupić psa</li>
                     <li>tych, co lubią psy</li>
-                    <a href="regulamin.html">Przeczytaj regulamin forum</a>
                 </ol>
+                <a href="regulamin.html">Przeczytaj regulamin forum</a>
             </div>
         </div>
     </main>
