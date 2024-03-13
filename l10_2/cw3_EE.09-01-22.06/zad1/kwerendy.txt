@@ -2,14 +2,14 @@
 INSERT INTO odpowiedzi (Pytania_id, konta_id, odpowiedz) VALUES (
       1 
     , 5
-    , "Przyda Ci się także wysoki stół, na którym postawisz pieska."
+    , 'Przyda Ci się także wysoki stół, na którym postawisz pieska.'
     );
 
 -- kw2
 SELECT nick,
 (YEAR(NOW()) - rejestracja) as 'latNaForum'
 FROM konta
-WHERE nick IN ("Jacek", "Tomek", "Monika");
+WHERE nick IN ('Jacek', 'Tomek', 'Monika');
 
 -- kw3
 SELECT nick, postow, pytanie

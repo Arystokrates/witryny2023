@@ -52,8 +52,8 @@
                         elseif (trim($password) != trim($password_rep)) echo "<p>Hasła się różnią. Konto nie zostało dodane.</p>";
                         else {
                             if (mysqli_query($conn, "INSERT INTO uzytkownicy(`login`, haslo) VALUES
-                            ('".$login."', '".sha1($password)."')")) echo "Konto zostało dodane";
-                            else echo "Konto nie dodane z nieznanych przyczyn :c. Zgłoś problem do administracji";
+                            ('".$login."', '".sha1($password)."')")) echo "<p>Konto zostało dodane</p>";
+                            else echo "<p>Konto nie dodane z nieznanych przyczyn :c. Zgłoś problem do administracji</p>";
                         }
                     }
                     mysqli_close($conn);

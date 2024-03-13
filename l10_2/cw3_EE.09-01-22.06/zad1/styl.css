@@ -1,0 +1,42 @@
+*{
+    font-family: Garamond, serif;
+}
+header{
+    background-image: linear-gradient(#97b498, #c8e6c9);
+    color: white;
+    text-align: center;
+    padding: 5px;
+}
+main{
+    display: flex;
+    color: #005005;
+}
+.left{
+    background-color:  #c8e6c9;
+    width: 40%;
+    height: 600px;
+}
+.right{
+    width: 60%;
+    height: 600px;
+    overflow: scroll;
+}
+footer{
+    background-image: linear-gradient( #c8e6c9, #97b498);
+    color: white;
+    padding: 12px;
+}
+video{
+    width: 100%;
+}
+form{
+    padding: 10px 50px;
+}
+.btn{
+    color: white;
+    background-color: #97b498;
+}
+.btn:hover{
+    background-color: white;
+    color: #97b498;
+}
