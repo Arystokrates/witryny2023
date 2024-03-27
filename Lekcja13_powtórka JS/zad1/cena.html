@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>malarz</title>
+    <link rel="stylesheet" href="styl_1.css">
+</head>
+<body>
+    <header>
+        <h1>Malowanie pokoi i biur</h1>
+    </header>
+    <div class="flex">
+        <div class="left">
+            <h2>Menu</h2>
+            <ul>
+                <a href="mieszamy.html">Mieszamy</a>
+                <a href="cena.html">Wyceniamy</a>
+            </ul>
+        </div>
+        <article>
+            <h2>Zapotrzebowanie na farbę</h2>
+            <label for="numeric_input">Powierzchnia malowania (m<sup>2</sup>):</label>
+            <input type="number" id="numeric_input" name="numeric_input">
+            <input type="submit" name="submit_btn" id="submit_btn">
+            <div id="output"></div>
+        </article>
+        <div class="right">
+            <img src="obraz.png" alt="Próbki farb">
+        </div>
+    </div>
+    <footer>
+        <h3>Malarz</h3>
+        <p>Stronę opracował: {nr zdającego}</p>
+    </footer>
+    <script>
+        submit_btn.addEventListener("click", (e)=> output.innerHTML = "Liczba potrzebnych puszek: " + Math.ceil(numeric_input.value/4));
+
+    </script>
+</body>
+</html>
